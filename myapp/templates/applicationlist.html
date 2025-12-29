@@ -1,0 +1,59 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+
+<legend style="color:blue">{{request.GET.action}} Credit Card Application</legend>
+    <div class="row">
+          <div class="col-sm-12">
+            <section class="panel">
+              <header class="panel-heading">
+               {{request.GET.action}} Credit Card Application
+              </header>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>S.No</th>
+                    <th>Application Number</th>
+                    <th>Name</th>
+                    <th>Mobile Number</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Apply date</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                {% for i in data %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.regnumber}}</td>
+                    <td>{{i.fullname}}</td>
+                    <td>{{i.mobile}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.status}}</td>
+                    <td>{{i.creationdate}}</td>
+                      <td>
+                        <a href="{% url 'detail' i.id %}">
+                            <button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button>
+                        </a>
+                    <br>
+                    </td>
+                  </tr>
+
+                 {% endfor %}
+                  </tbody>
+<tr>
+                    <th>S.No</th>
+                    <th>Application Number</th>
+                    <th>Name</th>
+                    <th>Mobile Number</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Apply date</th>
+                    <th>Action</th>
+                  </tr>
+                </table>
+            </section>
+              </div>
+            </div>
+{% endblock %}

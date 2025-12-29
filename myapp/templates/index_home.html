@@ -1,0 +1,103 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+	<!-- wrapper -->
+	<div class="card">
+		<br><br>
+	<div class="wrapper">
+		<div class="mt-2">
+			<div class="row">
+			<div class="col-md-6">
+				<div class="col-12 col-lg-6 mx-auto">
+					<div class="card radius-12 overflow-hidden">
+						<div class="btn-primary">
+						<div class="row g-0">
+							<div class="col-xl-12">
+								<div class="card-body p-4">
+									<div class="">
+										<h3 class="mt-4 font-weight-bold">Apply For Credit Card</h3>
+									</div>
+									<div class="">
+										<div class="form-body">
+											<form class="row g-3" action="/add_application/" method="post" enctype="multipart/form-data" >
+                            					{% csrf_token %}
+												<div class="col-12">
+													<label for="inputEmailAddress" class="form-label">Full Name</label>
+													<input type="text" class="form-control" required id="inputEmailAddress" name="fullname" placeholder="Username">
+												</div>
+												<div class="col-12">
+													<label for="inputEmailAddress" class="form-label">Your Mail</label>
+													<input type="email" class="form-control" required id="inputEmailAddress" name="email" placeholder="Email">
+												</div>
+												<div class="col-12">
+													<label for="inputEmailAddress" class="form-label">Phone Number</label>
+													<input type="number" class="form-control" required id="inputEmailAddress" name="mobile" placeholder="Phone Number">
+												</div>
+												<div class="col-12">
+													<label for="inputEmailAddress" class="form-label">Father's Name</label>
+													<input type="text" class="form-control" required id="inputEmailAddress" name="father" placeholder="Father's Name">
+												</div>
+												<div class="col-12">
+													<label for="inputEmailAddress" class="form-label">Enter Address</label>
+													<textarea type="text" rows="5" class="form-control" required id="inputEmailAddress" name="address" placeholder="Address"></textarea>
+												</div>
+												<div class="col-12">
+													<label for="inputEmailAddress" class="form-label">State</label>
+													<input type="text" class="form-control" required id="inputEmailAddress" name="state" placeholder="State">
+												</div>
+												<div class="col-12">
+													<label for="inputEmailAddress" class="form-label">City</label>
+													<input type="text" class="form-control" required id="inputEmailAddress" name="city" placeholder="City">
+												</div>
+												<div class="col-12">
+													<label for="inputEmailAddress" class="form-label">Pincode</label>
+													<input type="text" class="form-control" required id="inputEmailAddress" name="pincode" placeholder="Pincode">
+												</div>
+												<div class="col-12">
+													<label for="inputEmailAddress" class="form-label">Occupation Type</label>
+													<select type="text" class="form-control" required id="inputEmailAddress" name="occup" value="{{lockertype.occup}}" placeholder="Occupation Type">
+													<option value="">Choose Occupation Type</option>
+													<option value="Salaried">Salaried</option>
+													<option value="Business">Business</option>
+													<option value="Self-Employed">Self-Employed</option>
+													<option value="Government Employee">Government Employee</option>
+													<option value="Other">Other</option>
+													</select>
+												</div>
+												<div class="col-12">
+													<input type="text" class="form-control" required id="inputEmailAddress" name="income" placeholder="Enter Monthly Income">
+												</div>
+												<div class="col-12">
+													<label for="inputEmailAddress" class="form-label">Upload Pan Card</label>
+													<input type="file" class="form-control" required id="inputEmailAddress" name="image1" placeholder="Enter Monthly Income">
+												</div>
+												<div class="col-12">
+													<label for="inputEmailAddress" class="form-label">Upload Address Proof</label>
+													<input type="file" class="form-control" required id="inputEmailAddress" name="image2" placeholder="Enter Monthly Income">
+												</div>
+												<div class="col-12">
+													<div class="d-grid">
+														<button type="submit" class="btn btn-warning">Apply</button>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							 </div>
+						</div>
+						<!--end row-->
+					</div>
+				</div>
+			</div>
+		</div>
+				<div class="col-md-6 col-lg-6">
+					<h4>Benefits Of Credit Card</h4>
+					<img src="{% static 'assets/images/Dollar.png' %}" style="height:550px;width: 69%;">
+				</div>
+	</div>
+	</div>
+	</div>
+	</div>
+{% endblock %}

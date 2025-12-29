@@ -1,0 +1,141 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="card">
+    <div class="card-body">
+        <div class="table table-bordered table-striped"><h4 style="color:red"><span>View Credit Card Application Details</span></h4></div>
+        <div class="card-body">
+
+            <table id="example1" class="table table-bordered table-striped">
+                <th></th>
+                <th><h4 align="center">User Details</h4></th>
+                <th></th>
+                <th></th>
+                <tr>
+                    <th>Application Number</th>
+                    <td>{{data.regnumber}}</td>
+                    <th>Full Name</th>
+                    <td>{{data.fullname}}</td>
+                </tr>
+
+                <tr>
+                    <th>Email</th>
+                    <td>{{data.email}}</td>
+                    <th>Mobile Number</th>
+                    <td>{{data.mobile}}</td>
+                </tr>
+                <tr>
+                    <th>Father Name</th>
+                    <td>{{data.father}}</td>
+                    <th>Address</th>
+                    <td>{{data.address}}</td>
+                </tr>
+                <tr>
+                    <th>State</th>
+                    <td>{{data.state}}</td>
+                    <th>City</th>
+                    <td>{{data.city}}</td>
+                </tr>
+                <tr>
+                    <th>Pincode</th>
+                    <td>{{data.pincode}}</td>
+                    <th>Occupationtype</th>
+                    <td>{{data.occup}}</td>
+                </tr>
+                <tr>
+                    <th>Monthly Income</th>
+                    <td>{{data.income}}</td>
+                    <th>Pancard</th>
+                    <td>
+                        {% if data.image1 %}
+                        <div class="col-2 mt-4">
+                            <a class="btn btn-primary" href="{{data.image1.url}}"
+                               target="_blank">View Pancard</a>
+                        </div>
+                        {% else %}
+                        <div class=" form-group col-2 mt-4">
+                            File not found
+                        </div>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Address Proof</th>
+                    <td>{% if data.image2 %}
+                    <div class="col-2 mt-4">
+                        <a class="btn btn-primary" href="{{data.image2.url}}" target="_blank">View Address Proof</a>
+                    </div>
+                    {% else %}
+                    <div class=" form-group col-2 mt-4">
+                        File not found
+                    </div>
+                    {% endif %}</td>
+                </tr>
+                <tr>
+                    <th>Application Status</th>
+                    <td>{{data.status}}</td>
+                    <th>Application Date</th>
+                    <td>{{data.creationdate}}</td>
+                </tr>
+                <tr>
+                    <th>Remark</th>
+                    <td>
+                        {% if data.status == "Not Updated Yet" %}
+                            wait for approval
+                        {% endif %}
+                        {% for i in traking %}
+                            {{i.remark}}
+                        {% endfor %}
+                    </td>
+                    <th>Maximum Limit</th>
+                    <td>
+                        {% if data.status == "Not Updated Yet" %}
+                            Not Updated Yet
+                        {% endif %}
+                        {{data.limit}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {% if data.status == "Not Updated Yet" %}
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <tr>
+                        <td>Remark:</td>
+                        <td>
+                            <textarea rows="5" type="text" class="form-control" name="remark" required></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Status:</span></td>
+                        <td>
+                            <div class="form-group">
+                                <select class="form-control" name="status" required>
+                                    <option value="">Select</option>
+                                    <option value="Approved">Approved</option>
+                                    <option value="Rejected">Rejected</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Maximum Limit:</td>
+                        <td>
+                            <input type="text" class="form-control" name="limit">
+                        </td>
+                    </tr>
+                    <td>
+                    <td>
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    </td>
+                    </td>
+                </form>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

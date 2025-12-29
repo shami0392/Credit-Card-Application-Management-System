@@ -1,0 +1,64 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+
+<legend style="color:black">User Profile</legend>
+    <div class="row">
+          <div class="col-lg-10">
+            <section class="panel">
+              <header style="color:blue" class="panel-heading">
+                User Profile
+              </header>
+                <br>
+<section class="content">
+      <div class="container">
+<div class="card card-default">
+
+
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                  <form action="" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                  <div class="row">
+
+                     <div class="col-12 form-group">
+                         <label>First Name</label>
+                         <input type="text" class="form-control p-4" name="firstname"  placeholder="Firstname" required="required" value="{{data.user.first_name}}">
+                      </div>
+
+                       <div class="col-12 form-group">
+                           <label>Email</label>
+                         <input type="email" class="form-control p-4" name="email" placeholder="Email" required="required" value="{{data.user.email}}">
+                       </div>
+                       <div class="col-12 form-group">
+                           <label>Username</label>
+                         <input type="text" class="form-control p-4" name="username" required="required" value="{{data.user.username}}"readonly>
+                       </div>
+
+                       <div class="col-12 form-group">
+                           <label>Mobile</label>
+                         <input type="text" class="form-control p-4" name="mobile" placeholder="Contact Number" required="required" value="{{data.mobile}}" >
+                       </div>
+                      <div class="col-12 form-group">
+                          <label>Registration Date</label>
+                         <input type="text" class="form-control p-4" name="creationdate" required="required" value="{{data.creationdate}}"readonly>
+                       </div>
+
+                    <div>
+                     <button class="btn btn-primary py-1 px-3" type="submit">Update</button>
+                   </div>
+                  </div>
+                   </form>
+                </div>
+            </div>
+
+            <!-- /.row -->
+          </div>
+          <!-- /.card-body -->
+        </div>
+      </div>
+</section>
+</div>
+</form>
+{% endblock %}

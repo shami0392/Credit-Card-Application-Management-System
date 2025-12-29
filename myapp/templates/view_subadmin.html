@@ -1,0 +1,63 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+
+<legend style="color:blue">Manage Subadmin</legend>
+    <div class="row">
+          <div class="col-sm-12">
+            <section class="panel">
+              <header class="panel-heading">
+                Sub Admin Details
+              </header>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>S.No</th>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Email Id</th>
+                    <th>Mobile Number</th>
+                    <th>Creationdate</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                {% for i in data %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.user.username}}</td>
+                    <td>{{i.user.first_name}}</td>
+                    <td>{{i.user.email}}</td>
+                    <td>{{i.mobile}}</td>
+                    <td>{{i.creationdate}}</td>
+                      <td>
+                        <a href="{% url 'edit_subadmin' i.user.id %}">
+                            <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                        </a>
+                        <a href="{% url 'delete_subadmin' i.id %}" onclick="return confirm('Are you sure?')">
+                            <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i> </button>
+                        </a>
+
+<br>
+
+                    </td>
+                  </tr>
+
+                 {% endfor %}
+                  </tbody>
+<tr>
+                    <th>S.No</th>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Email Id</th>
+                    <th>Mobile Number</th>
+                    <th>Creationdate</th>
+                    <th>Action</th>
+                  </tr>
+                </table>
+            </section>
+              </div>
+
+            </div>
+
+{% endblock %}

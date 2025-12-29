@@ -1,0 +1,108 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+
+<legend style="color:black">B/W Date Application Report Date</legend>
+    <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header style="color:blue" class="panel-heading">
+                B/W Date Application Report Date
+              </header><br>
+                <div class="container">
+          <!-- /.card-header -->
+
+          <div class="card-body">
+                  <form action="" method="post">
+                      {% csrf_token %}
+                <div class="form-group">
+                  <label>From Date</label>
+                    <input type="date" class="form-control select2bs4" name="fromdate" value="{{fromdate}}" style="width: 100%;" required>
+                  </div>
+
+                <div class="form-group">
+                  <label>To Date</label>
+                  <input type="date" class="form-control select2bs4" name="todate" value="{{todate}}" style="width: 100%" required>
+                  </div>
+
+
+                    <br/>
+                   <div>
+                     <button class="btn btn-primary py-1 px-3" type="submit">Submit</button>
+                   </div>
+
+                  </form>
+          </div>
+                </div>
+            </section>
+                </div>
+            </div>
+
+{% if data %}
+
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <thead>
+                  <tr>
+                        <th>S.No</th>
+                        <th>Application Number</th>
+                        <th>Name</th>
+                        <th>Mobile Number</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Apply date</th>
+                        <th>Credit Limit</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.regnumber}}</td>
+                        <td>{{i.fullname}}</td>
+                        <td>{{i.mobile}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.status}}</td>
+                        <td>{{i.creationdate}}</td>
+                        <td>{{i.limit}}</td>
+                      <td>
+                        <a href="{% url 'detail' i.id %}">
+                            <button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button>
+                        </a>
+<br>
+
+                    </td>
+                  </tr>
+
+                 {% endfor %}
+                  </tbody>
+<tr>
+                    <th>S.No</th>
+                    <th>Application Number</th>
+                    <th>Name</th>
+                    <th>Mobile Number</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Apply date</th>
+                    <th>Credit Limit</th>
+                    <th></th>
+                  </tr>
+                </table>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
+{% elif data2 %}
+
+<h3 align="center">Data not found</h3>
+
+{% endif %}
+{% endblock %}

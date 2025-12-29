@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="card">
+<section id="contact" class="contact">
+      <div class="container">
+{% for i in data %}
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Contact</h2>
+          <p align="center" style="color:black">{{i.pagetitle}}</p>
+        </div>
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4" data-aos="fade-right">
+            <div class="info">
+              <div class="address">
+                <i class="fa fa-home"></i>
+                <h4>Location:</h4>
+                <p>{{i.description}}</p>
+              </div>
+
+              <div class="email">
+                <i class="fa fa-envelope"></i>
+                <h4>Email:</h4>
+                <p>{{i.email}}</p>
+              </div>
+
+              <div class="phone">
+                <i class="fa fa-phone"></i>
+                <h4>Call:</h4>
+                <p>+{{i.mobile}}</p>
+              </div>
+
+            </div>
+
+          </div>
+ {% endfor %}
+          <div class="col-lg-8 order-1 order-lg-2 text-center">
+                <img src="{% static 'assets/img/features-1.png' %}" alt="" class="img-fluid">
+          </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+</div>
+{% endblock %}

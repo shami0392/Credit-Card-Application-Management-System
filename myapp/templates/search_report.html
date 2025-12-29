@@ -1,0 +1,78 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+
+<legend style="color:black">Search Report</legend>
+    <div class="row">
+          <div class="col-lg-10">
+            <section class="panel">
+              <header style="color:blue" class="panel-heading">
+                Search Report
+              </header><br>
+                <div class="container">
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <legend style="color:purple">Search Locker Details by Locker Number/key Number/Name</legend>
+    <div class="mb-3">
+        <input type="text" style="width:100%;" class="form-control" id="exampleInputText1" placeholder="Locker Number" value="{{fromdate}}" name="fromdate">
+    </div><br>
+        <button type="submit" class="btn btn-primary">Search</button><br>
+</form>
+</div>
+{% if data %}
+<div class="container">
+<h3 align="center"> Search Locker Details '{{fromdate}}'</h3>
+    <table class="table table-dark" style="width:100%">
+                <thead>
+                  <tr>
+                        <th>S.No</th>
+                        <th>Application Number</th>
+                        <th>Name</th>
+                        <th>Mobile Number</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Apply date</th>
+                        <th>Credit Limit</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.regnumber}}</td>
+                        <td>{{i.fullname}}</td>
+                        <td>{{i.mobile}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.status}}</td>
+                        <td>{{i.creationdate}}</td>
+                        <td>{{i.limit}}</td>
+                      <td>
+                       <a href="{% url 'detail' i.id %}">
+                            <button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button>
+                        </a>
+<br>
+
+                    </td>
+                  </tr>
+
+                 {% endfor %}
+                  </tbody>
+<tr>
+                    <th>S.No</th>
+                    <th>Application Number</th>
+                    <th>Name</th>
+                    <th>Mobile Number</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Apply date</th>
+                    <th>Credit Limit</th>
+                  </tr>
+                </table>
+              </div>
+            </section>
+            </div>
+    {% endif %}
+</div>
+
+{% endblock %}

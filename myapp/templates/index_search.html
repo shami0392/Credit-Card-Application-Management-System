@@ -1,0 +1,105 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="card" >
+    <br><br>
+    <h4 align="center">Check Credit Card Status</h4>
+    <div class="card-body">
+						<div class="row g-0">
+          <div class="col-sm-12">
+        <div class="container">
+            <section id="portfolio-details" class="portfolio-details">
+                <div class="container">
+                    <div class="section-authentication-login d-flex align-items-center justify-content-center mt-4">
+			<div class="row">
+				<div class="col-12 col-lg-12 mx-auto">
+					<div class="btn btn-primary">
+						<div class="row g-0">
+							<div class="col-xl-12">
+								<div class="card-body p-2">
+                                    <div class="text-center">
+                                    <div class="col-md-10" align="center">
+                                        <h4 align="left">Check Your Credit Card Application Status</h4>
+                                        <br><h6 style="color:black" align="left">Search Credit Card Application by Name/Email/Mobile Number/Application Number</h6>
+                                    </div>
+									<div class="">
+										<div class="form-body">
+											<form class="row g-4" action="" method="post" enctype="multipart/form-data" >
+                            					{% csrf_token %}
+												<div class="col-12">
+													<input type="text" class="form-control" id="inputEmailAddress" placeholder="Application Number" value="{{fromdate}}" name="fromdate" required>
+												</div>
+												<div class="col-5">
+													<div class="d-grid">
+														<button type="submit" class="btn btn-warning">Search</button>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							 </div>
+						</div>
+						<!--end row-->
+					</div>
+				</div>
+			</div>
+		</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+{% if data %}
+<div class="container">
+    <h3 align="center"> Result againt '{{fromdate}}' keyword</h3>
+    <table class="table table-dark" style="width:100%">
+        <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Application Number</th>
+            <th>Name</th>
+            <th>Mobile Number</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Apply date</th>
+            <th>Credit Limit</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.regnumber}}</td>
+            <td>{{i.fullname}}</td>
+            <td>{{i.mobile}}</td>
+            <td>{{i.email}}</td>
+            <td><button class="btn btn-primary">{{i.status}}</button></td>
+            <td>{{i.creationdate}}</td>
+            <td>{{i.limit}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tr>
+            <th>S.No</th>
+            <th>Application Number</th>
+            <th>Name</th>
+            <th>Mobile Number</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Apply date</th>
+            <th>Credit Limit</th>
+        </tr>
+    </table>
+    {% elif data2 %}
+
+<h4 align="center">Data not found</h4>
+</div>
+{% endif %}
+</div>
+    </div>
+</div>
+{% endblock %}
