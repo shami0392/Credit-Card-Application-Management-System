@@ -1,106 +1,64 @@
 {% extends 'index.html' %}
 {% load static %}
 {% block body %}
+<div class=""about-page">
+<section class="about-page">
+  <div class="container">
+    <div class="tab-content" data-aos="fade-up">
 
-<div class="card">
-      <div class="container">
-        <div class="tab-content" data-aos="fade-up">
-          <div class="tab-pane active show" id="tab-1">
-            <br><br>
-            <div class="row">
-              {% for i in data %}
-              <div>
-                  <h3>About Credit Card Application Management System</h3>
-                <p>
-                  The <strong>Credit Card Application Management System (CCAMS)</strong> is a web-based platform developed to automate and simplify the credit card application process. It allows users to apply for credit cards online in a secure and convenient manner without visiting a physical bank branch.
-                </p>
-                <p>
-Through this system, applicants can enter personal, contact, and income details, upload required documents such as PAN Card and Address Proof, and track the real-time status of their credit card application. This ensures transparency, accuracy, and faster processing.
-</p>
-                <p class="fst-italic">
-                 On the administrative side, CCAMS enables administrators to verify applications, manage user data, approve or reject requests, and generate reports efficiently. The system reduces manual workload and improves overall operational efficiency.
-                </p>
-                <ul>
-                  <li><i class="ri-check-double-line"></i> Online credit card application submission.</li>
-                  <li><i class="ri-check-double-line"></i> Secure document upload (PAN card & Address Proof)</li>
-                  <li><i class="ri-check-double-line"></i> Real time application status tracking.</li>
-                  <li><i class="ri-check-double-line"></i> Admin verification and approval process.User -friendly and responsive interface</li>
-                </ul>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{% static 'assets/img/features-1.png' %}" alt="" class="img-fluid">
-              </div>
-            </div>
+      <!-- ABOUT SECTION -->
+      <div class="tab-pane active show" id="tab-1">
+        <div class="row align-items-center">
+
+          <!-- LEFT CONTENT -->
+          <div class="col-lg-6 order-2 order-lg-1">
+
+            <h3>About Credit Card Application Management System</h3>
+
+            <p>
+              <strong>Credit Card Application Management System (CCAMS)</strong>
+              is a web-based platform designed to automate and simplify the
+              credit card application process. It enables users to apply
+              for credit cards online in a secure and efficient manner
+              without visiting a physical bank branch.
+            </p>
+
+            <p>
+              Applicants can submit personal, contact, and income details,
+              upload required documents such as PAN Card and Address Proof,
+              and track their application status in real time. This ensures
+              transparency, accuracy, and faster processing.
+            </p>
+
+            <p class="fst-italic">
+              On the administrative side, CCAMS helps administrators verify
+              applications, manage user data, approve or reject requests,
+              and generate reports efficiently, reducing manual workload.
+            </p>
+
+            <ul>
+              <li><i class="ri-check-double-line"></i> Online credit card application submission</li>
+              <li><i class="ri-check-double-line"></i> Secure document upload (PAN & Address Proof)</li>
+              <li><i class="ri-check-double-line"></i> Real-time application status tracking</li>
+              <li><i class="ri-check-double-line"></i> Admin verification and approval process</li>
+            </ul>
+
           </div>
-          <div class="tab-pane " id="tab-2">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>About Credit Card Application Management System</h3>
-                <p>
-                  The <strong>Credit Card Application Management System (CCAMS)</strong> is a web-based platform developed to automate and simplify the credit card application process. It allows users to apply for credit cards online in a secure and convenient manner without visiting a physical bank branch.
-                </p>
-                <p>
-Through this system, applicants can enter personal, contact, and income details, upload required documents such as PAN Card and Address Proof, and track the real-time status of their credit card application. This ensures transparency, accuracy, and faster processing.
-</p>
-                <p class="fst-italic">
-                 On the administrative side, CCAMS enables administrators to verify applications, manage user data, approve or reject requests, and generate reports efficiently. The system reduces manual workload and improves overall operational efficiency.
-                </p>
-                <ul>
-                  <li><i class="ri-check-double-line"></i> Online credit card application submission.</li>
-                  <li><i class="ri-check-double-line"></i> Secure document upload (PAN card & Address Proof)</li>
-                  <li><i class="ri-check-double-line"></i> Real time application status tracking.</li>
-                  <li><i class="ri-check-double-line"></i> Admin verification and approval process.User -friendly and responsive interface</li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{% static 'assets/img/features-2.png' %}" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div> 
-          <div class="tab-pane" id="tab-3">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3></h3>
-                <p>
-                
-                </p>
-                <ul>
-                  <li><i class="ri-check-double-line"></i> </li>
-                  <li><i class="ri-check-double-line"></i></li>
-                  <li><i class="ri-check-double-line"></i> </li>
-                </ul>
-                <p class="fst-italic">
-                  
-                </p>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{% static 'assets/img/features-3.png' %}" alt="" class="img-fluid">
-              </div>
-            </div>
+
+          <!-- RIGHT IMAGE -->
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <img src="{% static 'assets/img/features-1.png' %}"
+                 class="img-fluid"
+                 alt="Credit Card Management System">
           </div>
-          <div class="tab-pane" id="tab-4">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3></h3>
-                <p>
-                  
-                </p>
-                <p class="fst-italic">
-                  
-                </p>
-                <ul>
-                  <li><i class="ri-check-double-line"></i></li>
-                  <li><i class="ri-check-double-line"></i></li>
-                  <li><i class="ri-check-double-line"></i> </li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{% static 'assets/img/features-4.png' %}" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div>
+
         </div>
-
       </div>
+      <!-- END ABOUT -->
+
+    </div>
+  </div>
+</section>
 </div>
 
 {% endblock %}

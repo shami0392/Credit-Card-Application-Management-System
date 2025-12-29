@@ -9914,3 +9914,116 @@ span.customSelect.changed {
 #sendmessage.show, #errormessage.show, .show {
 	display:block;
 }
+/* =========================
+   ABOUT PAGE FIX
+   ========================= */
+
+.card {
+    background: #ffffff;
+    padding: 60px 0;
+}
+
+.tab-content,
+.tab-pane {
+    overflow: visible !important;
+}
+
+.tab-pane p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #444;
+}
+
+.tab-pane ul li {
+    margin-bottom: 8px;
+}
+
+.tab-pane img {
+    max-width: 100%;
+    height: auto;
+}
+.tab-pane img {
+    margin-top: 20px;
+}
+/* ===========================
+   ABOUT PAGE FULL FIX
+=========================== */
+
+.about-page {
+    background: #ffffff;
+    padding: 80px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.about-page h3 {
+    color: #222;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.about-page p,
+.about-page ul li {
+    color: #444;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.about-page ul {
+    margin-top: 15px;
+}
+
+.about-page img {
+    max-width: 100%;
+}
+/* ===========================
+   REMOVE BOTTOM FADE ISSUE
+=========================== */
+
+/* Stop footer overlay effect */
+footer,
+.footer,
+#footer {
+    background: #111 !important;
+    opacity: 1 !important;
+}
+
+/* Ensure about section stays above footer */
+.about-page {
+    position: relative;
+    z-index: 20;
+    background: #ffffff;
+}
+
+/* Disable any overlay gradients */
+.about-page::before,
+.about-page::after {
+    display: none !important;
+}
+/* ===============================
+   ABOUT PAGE FULL FIX (FINAL)
+================================ */
+
+.about-page {
+    background: #ffffff !important;
+    min-height: 100vh;
+    padding: 60px 0;
+    position: relative;
+    z-index: 999;
+}
+
+.about-page * {
+    opacity: 1 !important;
+}
+
+body {
+    background: #ffffff !important;
+}
+
+/* Disable any section overlay */
+section::before,
+section::after,
+.card::before,
+.card::after {
+    display: none !important;
+}
