@@ -1,4 +1,4 @@
-# Credit-Card-Application-Management-System
+
 # Credit Card Application Management System (CCAMS)
 
 ## 📌 Project Overview
